@@ -4,10 +4,10 @@ IDK Its New LOL
 --Notes--
 Replace Tab Name, Text, Max, Min
 
-Tab Name : Name of the tab you created
-Text : Text for the Label, Button, Slider
-Max : Max Value
-Min : Min Value
+| Tab Name : Name of the tab you created |
+| Text : Text for the Label, Button, Slider |
+| Max : Max Value |
+| Min : Min Value |
 
 Library loadstring
 ```
