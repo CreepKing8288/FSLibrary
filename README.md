@@ -26,8 +26,14 @@ main:CreateTab("Tab Name")
 ```
 
 Sort UI
+
+List UI
 ```
 main:SortList("Tab Name")
+```
+
+Grid UI
+```
 main:SortGrid("Tab Name")
 ```
 
