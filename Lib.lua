@@ -199,8 +199,8 @@ function library:CreateWindow(text)
         Indi.Parent = Toggle
         Indi.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
         Indi.BorderSizePixel = 0
-        Indi.Position = UDim2.new(0.838258624, 0, 0.285758942, 0)
-        Indi.Size = UDim2.new(0.145532012, 0, 0.428481162, 0)
+        Indi.Position = UDim2.new(0.00456783315, 0, 0.89945966, 0)
+        Indi.Size = UDim2.new(0.995432317, 0, 0.114832997, 0)
         Indi.Font = Enum.Font.SourceSans
         Indi.Text = " "
         Indi.TextColor3 = Color3.fromRGB(222, 222, 222)
@@ -322,7 +322,14 @@ function library:CreateWindow(text)
             end
         end)
     end)
-end
+    end
+
+    function Window:CreateNotification(title, message)
+        game:GetService("StarterGui"):SetCore("SendNotification",{
+            Title = title;
+            Text = message;
+                    })
+    end
     return Window
 end
 return library
