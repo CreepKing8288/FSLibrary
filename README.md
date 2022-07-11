@@ -2,8 +2,9 @@
 IDK Its New LOL
 
 --Notes--
-Replace Tab Name, Text, Max, Min
+Replace Title, Tab Name, Text, Max, Min
 
+| Title : Title you want |
 | Tab Name : Name of the tab you created |
 | Text : Text for the Label, Button, Slider |
 | Max : Max Value |
@@ -11,7 +12,12 @@ Replace Tab Name, Text, Max, Min
 
 Library loadstring
 ```
-local main = loadstring(game:HttpGet("https://raw.githubusercontent.com/CreepKing8288/FSLibrary/main/Lib.lua"))()
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/CreepKing8288/FSLibrary/main/Lib.lua"))()
+```
+
+Create Window
+```
+local main = lib:CreateWindow("Title")
 ```
 
 Create Tab
@@ -57,5 +63,5 @@ end)
 
 Create Notification
 ```
-main:CreateNotification("Tab Name", "Text")
+main:CreateNotification("Title", "Text")
 ```
