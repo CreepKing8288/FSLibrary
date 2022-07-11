@@ -60,7 +60,7 @@ main:CreateToggle("Tab Name", "Text", function(s)
 end)
 ```
 
-**Create Slider (Only Avalable For PC and Sort List)***NotRecomended For Mobile*
+**Create Slider (Only Avalable For PC and Sort List)** ***NotRecomended For Mobile***
 ```
 main:CreateSlider("Tab Name", "Text", "Max", "Min", function(s)
 	--Script
