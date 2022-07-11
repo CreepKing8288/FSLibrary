@@ -10,22 +10,22 @@ Replace Title, Tab Name, Text, Max, Min
 | Max : Max Value |
 | Min : Min Value |
 
-Library loadstring
+**Library loadstring**
 ```
 local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/CreepKing8288/FSLibrary/main/Lib.lua"))()
 ```
 
-Create Window
+**Create Window**
 ```
 local main = lib:CreateWindow("Title")
 ```
 
-Create Tab
+**Create Tab**
 ```
 main:CreateTab("Tab Name")
 ```
 
-Sort UI
+**Sort UI**
 
 List UI
 ```
@@ -37,19 +37,19 @@ Grid UI
 main:SortGrid("Tab Name")
 ```
 
-Create Label
+**Create Label**
 ```
 main:CreateLabel("Tab Name", "Text")
 ```
 
-Create Button
+**Create Button**
 ```
 main:CreateButton("Tab Name", "Text", function()
 	--Script
 end)
 ```
 
-Create Toggle
+**Create Toggle**
 ```
 main:CreateToggle("Tab Name", "Text", function(s)
 	if s then
@@ -60,14 +60,14 @@ main:CreateToggle("Tab Name", "Text", function(s)
 end)
 ```
 
-Create Slider (Only Avalable For PC / Sort Grid)
+**Create Slider (Only Avalable For PC and Sort List)***NotRecomended For Mobile*
 ```
 main:CreateSlider("Tab Name", "Text", "Max", "Min", function(s)
 	--Script
 end)
 ```
 
-Create Notification
+**Create Notification**
 ```
 main:CreateNotification("Title", "Text")
 ```
