@@ -2,13 +2,13 @@ local library = {}
 
 local toggled = false
 
-function library:CreateWindow(name)
+function library:CreateWindow(text)
     local Design = Instance.new("ScreenGui")
     local WindowFrame = Instance.new("Frame")
     local Title = Instance.new("TextLabel")
     local Mini = Instance.new("TextButton")
     local MainFrame = Instance.new("Frame")
-    local Hud = Instance.new("Frame")
+    local HudTab = Instance.new("Folder")
     local Tabs = Instance.new("Frame")
     local UIListLayout_2 = Instance.new("UIListLayout")
 
@@ -31,7 +31,7 @@ function library:CreateWindow(name)
     Title.Position = UDim2.new(0.0110015897, 0, 0, 0)
     Title.Size = UDim2.new(0.161833778, 0, 1.03442264, 0)
     Title.Font = Enum.Font.SourceSans
-    Title.Text = "Title"
+    Title.Text = text
     Title.TextColor3 = Color3.fromRGB(222, 222, 222)
     Title.TextScaled = true
     Title.TextSize = 14.000
@@ -58,11 +58,14 @@ function library:CreateWindow(name)
     MainFrame.Size = UDim2.new(1.00007606, 0, 12.9598513, 0)
     MainFrame.ClipsDescendants = true
 
-    Hud.Name = "Hud"
-    Hud.Parent = MainFrame
-    Hud.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
-    Hud.Position = UDim2.new(0.183870807, 0, 0, 0)
-    Hud.Size = UDim2.new(0.816129208, 0, 1, 0)
+    Tabs.Name = "Tabs"
+    Tabs.Parent = MainFrame
+    Tabs.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+    Tabs.Position = UDim2.new(-4.47034836e-08, 0, 0, 0)
+    Tabs.Size = UDim2.new(0.173367217, 0, 1, 0)
+
+    HudTab.Name = "HudTab"
+    HudTab.Parent = MainFrame
 
     UIListLayout_2.Parent = Tabs
     UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
@@ -79,30 +82,79 @@ function library:CreateWindow(name)
 
     local Window = {}
 
-    function Window:SortList()
+    function Window:SortList(path)
         local UIList = Instance.new("UIListLayout")
 
         UIList.Name = "UIList"
-        UIList.Parent = Hud
+        UIList.Parent = HudTab[path.."hud"]
         UIList.SortOrder = Enum.SortOrder.LayoutOrder
         UIList.Padding = UDim.new(0, 2)
     end
 
-    function Window:SortGrid()
+    function Window:SortGrid(path)
         local UIGrid = Instance.new("UIGridLayout")
 
         UIGrid.Name = "UIGrid"
-        UIGrid.Parent = Hud
+        UIGrid.Parent = HudTab[path.."hud"]
         UIGrid.SortOrder = Enum.SortOrder.LayoutOrder
     end
 
-    function Window:CreateButton(text, callback)
+    function Window:CreateTab(text)
+
+
+        local TabButton = Instance.new("TextButton")
+        local Hud = Instance.new("Frame")
+
+        TabButton.Name = text.."tab"
+        TabButton.Parent = Tabs
+        TabButton.BackgroundColor3 = Color3.fromRGB(77, 77, 77)
+        TabButton.BackgroundTransparency = 0.900
+        TabButton.BorderSizePixel = 0
+        TabButton.Size = UDim2.new(0.999999762, 0, 0.142453298, 0)
+        TabButton.Font = Enum.Font.SourceSans
+        TabButton.Text = text
+        TabButton.TextColor3 = Color3.fromRGB(222, 222, 222)
+        TabButton.TextScaled = true
+        TabButton.TextSize = 14.000
+        TabButton.TextWrapped = true
+
+        Hud.Name = text.."hud"
+        Hud.Parent = HudTab
+        Hud.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+        Hud.Position = UDim2.new(0.183870807, 0, 0, 0)
+        Hud.Size = UDim2.new(0.816129208, 0, 1, 0)
+
+        TabButton.MouseButton1Down:Connect(function()
+            for i,v in next, HudTab:GetChildren() do
+            v.Visible = false
+            end
+            Hud.Visible = true
+            print(Hud.Name)
+        end)
+    end
+
+    function Window:CreateLabel(path, text)
+        text = text or "Label"
+        local TextLabel = Instance.new("TextLabel")
+
+            TextLabel.Parent = HudTab[path.."hud"]
+            TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            TextLabel.BackgroundTransparency = 0.900
+            TextLabel.BorderSizePixel = 0
+            TextLabel.Size = UDim2.new(1, 0, 0.142000005, 0)
+            TextLabel.Font = Enum.Font.SourceSans
+            TextLabel.TextColor3 = Color3.fromRGB(222, 222, 222)
+            TextLabel.TextSize = 14.000
+            TextLabel.Text = text
+            TextLabel.TextScaled = true
+    end
+
+    function Window:CreateButton(path, text, callback)
         local callback = callback or function() end
 
         local TextButton = Instance.new("TextButton")
-
         
-        TextButton.Parent = Hud
+        TextButton.Parent = HudTab[path.."hud"]
         TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         TextButton.BackgroundTransparency = 0.900
         TextButton.BorderSizePixel = 0
@@ -119,24 +171,24 @@ function library:CreateWindow(name)
         end)
     end
 
-    function Window:CreateToggle(ttext, callback)
+    function Window:CreateToggle(path, text, callback)
         local actions = {}
         local enabled = false
 
-        ttext = ttext or "New Toggle"
+        text = text or "New Toggle"
         callback = callback or function() end
         
         local Toggle = Instance.new("TextButton")
         local Indi = Instance.new("TextButton")
 
         Toggle.Name = "Toggle"
-        Toggle.Parent = Hud
+        Toggle.Parent = HudTab[path.."hud"]
         Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Toggle.BackgroundTransparency = 0.900
         Toggle.BorderSizePixel = 0
         Toggle.Size = UDim2.new(0.999999762, 0, 0.142453298, 0)
         Toggle.Font = Enum.Font.SourceSans
-        Toggle.Text = ttext
+        Toggle.Text = text
         Toggle.TextColor3 = Color3.fromRGB(222, 222, 222)
         Toggle.TextScaled = true
         Toggle.TextSize = 14.000
@@ -169,11 +221,9 @@ function library:CreateWindow(name)
         end
     end
 
-    function Window:CreateSlider(stext, minvalue, maxvalue, callback)
-        if game:GetService("Players").kickerms.PlayerGui.Design.WindowFrame.MainFrame.Hud:FindFirstChild("UIGrid") then
-            print("GridUI Not Supported For Slider")
-        else
-        stext = stext or "Slider"
+    function Window:CreateSlider(path, text, minvalue, maxvalue, callback)
+        
+        text = text or "Slider"
         minvalue = minvalue or 0
         maxvalue = maxvalue or 500
 
@@ -191,7 +241,7 @@ function library:CreateWindow(name)
         local Sliderper = Instance.new("TextLabel")
 
         SliderFrame.Name = "SliderFrame"
-        SliderFrame.Parent = Hud
+        SliderFrame.Parent = HudTab[path.."hud"]
         SliderFrame.BackgroundColor3 = Color3.fromRGB(77, 77, 77)
         SliderFrame.Position = UDim2.new(-0.0138937868, 0, 0.330136955, 0)
         SliderFrame.Size = UDim2.new(1, 0, 0.155000001, 0)
@@ -225,7 +275,7 @@ function library:CreateWindow(name)
         SliderText.Position = UDim2.new(0.00231563114, 0, 0, 0)
         SliderText.Size = UDim2.new(0.65133214, 0, 0.473080933, 0)
         SliderText.Font = Enum.Font.SourceSans
-        SliderText.Text = "Sider"
+        SliderText.Text = text
         SliderText.TextColor3 = Color3.fromRGB(222, 222, 222)
         SliderText.TextScaled = true
         SliderText.TextSize = 14.000
@@ -273,7 +323,6 @@ function library:CreateWindow(name)
         end)
     end)
 end
-    end
     return Window
 end
-return Library
+return library
