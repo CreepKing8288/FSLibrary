@@ -1,5 +1,5 @@
 --FS Lib Change log
-IDK Its New LOL
+Added Label Color Text
 
 --Notes--
 Replace Title, Tab Name, Text, Max, Min, R,G,B
