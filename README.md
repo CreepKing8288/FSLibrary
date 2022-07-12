@@ -2,13 +2,14 @@
 IDK Its New LOL
 
 --Notes--
-Replace Title, Tab Name, Text, Max, Min
+Replace Title, Tab Name, Text, Max, Min, R,G,B
 
 | Title : Title you want |
 | Tab Name : Name of the tab you created |
 | Text : Text for the Label, Button, Slider |
 | Max : Max Value |
 | Min : Min Value |
+| R = Red ,G = Green, B = Blue/ Nums You Can leave it emty |
 
 **Library loadstring**
 ```
@@ -39,7 +40,7 @@ main:SortGrid("Tab Name")
 
 **Create Label**
 ```
-main:CreateLabel("Tab Name", "Text")
+main:CreateLabel("Tab Name", "Text", R, G, B)
 ```
 
 **Create Button**
