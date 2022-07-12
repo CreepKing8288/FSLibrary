@@ -1,17 +1,17 @@
---FS Lib Change log
+--**FS Lib Change log**
 ```
 Added Label Color Text
 ```
 --Notes--
 Replace Title, Tab Name, Text, Max, Min, R,G,B
-
+```
 | Title : Title you want |
 | Tab Name : Name of the tab you created |
 | Text : Text for the Label, Button, Slider |
 | Max : Max Value |
 | Min : Min Value |
 | R = Red ,G = Green, B = Blue/ Nums You Can leave it emty |
-
+```
 **Library loadstring**
 ```
 local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/CreepKing8288/FSLibrary/main/Lib.lua"))()
