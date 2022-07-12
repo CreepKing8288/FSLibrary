@@ -133,7 +133,10 @@ function library:CreateWindow(text)
         end)
     end
 
-    function Window:CreateLabel(path, text)
+    function Window:CreateLabel(path, text, R, G, B)
+        R = R or 222
+        G = G or 222
+        B = B or 222
         text = text or "Label"
         local TextLabel = Instance.new("TextLabel")
 
@@ -143,7 +146,7 @@ function library:CreateWindow(text)
             TextLabel.BorderSizePixel = 0
             TextLabel.Size = UDim2.new(1, 0, 0.142000005, 0)
             TextLabel.Font = Enum.Font.SourceSans
-            TextLabel.TextColor3 = Color3.fromRGB(222, 222, 222)
+            TextLabel.TextColor3 = Color3.fromRGB(R, G, B)
             TextLabel.TextSize = 14.000
             TextLabel.Text = text
             TextLabel.TextScaled = true
