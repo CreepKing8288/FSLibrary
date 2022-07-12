@@ -11,6 +11,7 @@ Replace Title, Tab Name, Text, Max, Min, R,G,B
 | Max : Max Value |
 | Min : Min Value |
 | R = Red ,G = Green, B = Blue/ Nums You Can leave it emty |
+https://g.co/kgs/rrbNTX - RGB Picker
 ```
 **Library loadstring**
 ```
