@@ -329,7 +329,7 @@ function library:CreateWindow(text)
     end
 
     function Window:CreateTextbox(path, text, placeholder)
-        TextBox.Name = "TextBox"
+        TextBox.Name = text.."TextBox"
         TextBox.Parent = HudTab[path.."hud"]
         TextBox.BackgroundColor3 = Color3.fromRGB(77, 77, 77)
         TextBox.Size = UDim2.new(1, 0, 0.142000005, 0)
