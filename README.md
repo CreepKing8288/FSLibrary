@@ -70,7 +70,20 @@ main:CreateSlider("Tab Name", "Text", "Max", "Min", function(s)
 end)
 ```
 
+**Create TextBox**
+```
+main:CreateTextbox("Tab Name", "Text", "Placeholder")
+```
+
 **Create Notification**
 ```
 main:CreateNotification("Title", "Text")
 ```
+
+**Game Place ID Detection**
+```
+main:GameID(placeid, function()
+--Codes
+end)
+```
+--dont add "" on placeid
